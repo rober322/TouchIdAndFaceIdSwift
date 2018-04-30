@@ -39,6 +39,16 @@ class ViewController: UIViewController {
                     print("Es correcto")
                 } else {
                     print("No es correcto")
+                    switch error!._code {
+                    case LAError.authenticationFailed.rawValue:
+                        print("Fallo la autenticación")
+                    case LAError.userCancel.rawValue:
+                        print("El usuario presiono el boton Cancelar")
+                    case LAError.userFallback.rawValue:
+                        print("El usuario presiono el boton Enter Password")
+                    default:
+                        print("El Touch ID no esta configurado")
+                    }
                 }
             })
         } else {
